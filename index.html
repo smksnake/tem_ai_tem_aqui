@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tem aí? Tem Aqui!</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Tem aí? Tem Aqui! início">
+      <span class="brand-pin">⌖</span>
+      <span>Tem aí?<strong> Tem Aqui!</strong></span>
+    </a>
+    <div class="top-search">
+      <label class="sr-only" for="search">Buscar produto, loja ou categoria</label>
+      <input id="search" type="search" placeholder="Buscar produto, loja ou categoria…">
+    </div>
+    <button id="mode-toggle" class="mode-toggle" type="button">Área do comerciante</button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navegação principal">
+      <button class="nav-item active" data-view="customer">⌂ <span>Início</span></button>
+      <button class="nav-item" data-view="reservations">▣ <span>Minhas reservas</span></button>
+      <button class="nav-item" data-view="merchant">▤ <span>Área do comerciante</span></button>
+      <div class="side-note">
+        <div class="note-icon">♡</div>
+        <h3>Valorize o comércio local!</h3>
+        <p>Pequenos comércios fazem grandes diferenças na nossa comunidade.</p>
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">COMÉRCIO PERTO DE VOCÊ</p>
+          <h1>O que você procura,<br><span>pode estar pertinho</span> de você!</h1>
+          <p>Consulte a disponibilidade e reserve no comércio local.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">🏪</div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Categorias em destaque</h2>
+          <button class="text-button" id="clear-category">Ver todas</button>
+        </div>
+        <div class="categories">
+          <button class="category" data-category="Lançamentos"><span>★</span>Lançamentos</button>
+          <button class="category" data-category="Livros e revistas"><span>▤</span>Livros e revistas</button>
+          <button class="category" data-category="Figurinhas"><span>⚽</span>Figurinhas</button>
+          <button class="category" data-category="Papelaria"><span>✎</span>Papelaria</button>
+          <button class="category" data-category="Outros"><span>＋</span>Outros</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <h2>Produtos disponíveis perto de você</h2>
+          <span class="muted" id="result-count"></span>
+        </div>
+        <div id="product-list" class="product-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="reserve-dialog" class="dialog">
+    <form method="dialog" id="reserve-form">
+      <button class="dialog-close" aria-label="Fechar" value="cancel">×</button>
+      <p class="eyebrow">RESERVA</p>
+      <h2 id="reserve-title">Reservar produto</h2>
+      <p id="reserve-store" class="muted"></p>
+      <label for="customer-name">Seu nome</label>
+      <input id="customer-name" required maxlength="80" placeholder="Como podemos te chamar?">
+      <label for="reserve-quantity">Quantidade</label>
+      <input id="reserve-quantity" type="number" min="1" value="1" required>
+      <p class="small muted">A reserva será registrada neste protótipo. Confirme a retirada diretamente com o estabelecimento.</p>
+      <button class="primary" id="confirm-reservation" value="default">Confirmar reserva</button>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
